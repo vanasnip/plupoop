@@ -8,7 +8,7 @@ export class BaseElement{
         el.append(this.element);
     }
     createElement(){
-        let s = this.getElement();
+        let s = this.getElementString();
         this.element = $(s);
     }
     getElementString(){

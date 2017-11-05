@@ -13,7 +13,16 @@
   <body>
     <h1>la</h1>
       <script>
-        System.paths['jquery'] = './node_modules/jquery/dist/jquery.js';
+        SystemJS.config({
+          map: {
+            'plugin-babel': './babel-plugin-systemjs/plugin-babel.js',
+            'systemjs-babel-build': './babel-plugin-systemjs/systemjs-babel-browser.js'
+          },
+          transpiler: 'plugin-babel'
+        });
+        //SystemJS.config({ transpiler: 'transpiler-module' })
+        //System.paths['jquery'] = './node_modules/jquery/dist/jquery.js';
+        System.config({paths:{'jquery':'./node_modules/jquery/dist/jquery.js'}})
         System.import('src/app.js');
       </script> 
   </body>
