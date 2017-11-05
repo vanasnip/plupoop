@@ -6,6 +6,7 @@ export class BaseElement{
     appendToElement(el){
         this.createElement();
         el.append(this.element);
+        this.enableJs();
     }
     createElement(){
         let s = this.getElementString();
@@ -13,6 +14,9 @@ export class BaseElement{
     }
     getElementString(){
         throw 'Please override getElementString() in BaseElement';
+    }
+    enableJs(){
+        componentHandler.upgradeElement(this.element[0]);
     }
 }
 
